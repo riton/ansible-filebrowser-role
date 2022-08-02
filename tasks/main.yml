@@ -1,0 +1,52 @@
+---
+# tasks file for roles/filebrowser
+
+- name: Create system group
+  group:
+    name: '{{ groupname }}'
+    system: true
+
+- name: Create system user
+  user:
+    name: '{{ username }}'
+    comment: 'filebrowser system user'
+    shell: '/bin/false'
+    group: '{{ groupname }}'
+    system: true
+    home: '{{ data_dir }}'
+    createhome: true
+
+- name: Create directories
+  file:
+    path: '{{ item }}'
+    state: 'directory'
+    owner: '{{ username }}'
+    group: '{{ groupname }}'
+    mode: '0700'
+  loop:
+    - '{{ data_dir }}'
+    - '{{ log_dir }}'
+
+- name: Initialize log file
+  file:
+    path: '{{ log_dir }}/filebrowser.log'
+    state: 'touch'
+    owner: '{{ username }}'
+    group: '{{ groupname }}'
+    mode: '0640'
+
+- name: Create sysconfig file
+  template:
+    src: 'sysconfig.j2'
+    dest: '{{ sysconfig_file }}'
+    owner: 'root'
+    group: 'root'
+    mode: '0640'
+
+- name: Create systemd service file
+  template:
+    src: 'systemd.j2'
+    dest: '/etc/systemd/system/filebrowser.service'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'

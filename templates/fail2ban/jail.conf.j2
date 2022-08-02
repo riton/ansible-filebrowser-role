@@ -1,0 +1,11 @@
+#
+# {{ ansible_managed }}
+#
+[filebrowser-failed-auth]
+enabled = true
+action = route
+maxretry = 3
+findtime = 3600
+bantime = 3600
+filter = filebrowser
+logpath = {{ log_dir }}/filebrowser.log

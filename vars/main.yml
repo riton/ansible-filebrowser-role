@@ -1,0 +1,8 @@
+---
+# vars file for roles/filebrowser
+username: 'filebrowser'
+groupname: 'filebrowser'
+data_dir: '/var/lib/filebrowser'
+log_dir: '/var/log/filebrowser'
+
+sysconfig_file: '/etc/default/filebrowser'

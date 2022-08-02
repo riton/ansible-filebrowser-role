@@ -1,0 +1,3 @@
+---
+# defaults file for roles/filebrowser
+storage_data_dir: '/torrent/filebrowser'

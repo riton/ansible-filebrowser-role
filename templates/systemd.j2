@@ -1,0 +1,26 @@
+#
+# {{ ansible_managed }}
+#
+[Unit]
+Description=Simple filebrowser
+Wants=basic.target
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile={{ sysconfig_file }}
+ExecStart=/usr/bin/filebrowser $OPTIONS
+User={{ username }}
+Group={{ groupname }}
+KillMode=process
+KillSignal=SIGTERM
+SyslogIdentifier=filebrowser
+PrivateUsers=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths={{ data_dir }} {{ log_dir }} {{ storage_data_dir }}
+WorkingDirectory={{ storage_data_dir }}
+
+[Install]
+WantedBy=multi-user.target

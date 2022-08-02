@@ -1,0 +1,20 @@
+---
+- name: Deploy filter file
+  template:
+    src: 'fail2ban/filter.conf.j2'
+    dest: '/etc/fail2ban/filter.d/filebrowser.conf'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify:
+    - restart fail2ban
+
+- name: Deploy jail file
+  template:
+    src: 'fail2ban/jail.conf.j2'
+    dest: '/etc/fail2ban/jail.d/filebrowser.conf'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify:
+    - restart fail2ban
