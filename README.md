@@ -1,5 +1,7 @@
 # Sample filebrowser ansible role
 
+![filebrowser logo](docs/filebrowser_banner.webp)
+
 ## Description
 
 This is a sample `ansible` role to deploy and configure [`filebrowser`](https://github.com/filebrowser/filebrowser).
