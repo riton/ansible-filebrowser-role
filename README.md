@@ -6,7 +6,7 @@
 
 This is a sample `ansible` role to deploy and configure [`filebrowser`](https://github.com/filebrowser/filebrowser).
 
-This repository is described in details in the post: [Filebrowser introduction](#)
+This repository is described in details in the post: [Filebrowser introduction](https://blog.riton.fr/en-us/2022/08/simple-presentation-of-the-ansible-installation-of-filebrowser-a-simple-and-efficient-web-based-file-browser/)
 
 ## Sample playbook
 
